@@ -50,7 +50,8 @@ lbMaxScore = Label(root, text="x")
 lbRoundScore = Label(root, text="x")
 
 btnStart = Button(root, text='Start', command=lambda:counter_label(lbTime))
-btnExit = Button(root, text='Exit')
+btnReset = Button(root, text='Reset')
+btnExit = Button(root, text='Exit', command=root.destroy)
 
 
 
@@ -93,6 +94,7 @@ inEntry.grid(row=3, column=2, ipadx=20, ipady=5, pady=15, sticky=E)
 drop.grid(row=3, column=3, sticky=W)
 
 btnStart.grid(row=4, column=2, sticky=W)
+btnReset.grid(row=4, column=2)
 btnExit.grid(row=4, column=2, sticky=E)
 
 
@@ -115,6 +117,7 @@ lb02.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 lbMaxScore.config(font = SimpleFont, bg="#252422", fg="#eb5e28")
 lbRoundScore.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 btnStart.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
+btnReset.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnExit.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 
 
