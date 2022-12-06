@@ -8,7 +8,7 @@ timer = False
 
 def counter_label(lbTime):
     def count():
-        if timer == False:
+        if timer == True:
             global counter
             if counter == 0:
                 display="00:00"
@@ -24,18 +24,19 @@ def counter_label(lbTime):
 
 def StartCounter(lbTime):
     global timer
-    timer = False
+    timer = True
     counter_label(lbTime)
     
 
 def reset():
     global counter, timer, date
     if timer >= 0:
-        timer=True
+        timer=False
         counter=0
         timer=0
     else:
-        timer=False
+        timer=True
+    btnStart['state'] = 'normal'
 
 root = Tk()
 root.title("Main Window")
