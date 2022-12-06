@@ -38,6 +38,8 @@ def reset():
         timer=True
     btnStart['state'] = 'normal'
 
+
+
 root = Tk()
 root.title("Main Window")
 root.geometry("520x300")
