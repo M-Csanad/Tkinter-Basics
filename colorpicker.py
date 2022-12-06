@@ -18,7 +18,6 @@ def counter_label(lbTime):
                 display=string
             lbTime.config(text=display)
             lbTime.after(1000, count)
-            btnStart['state'] = DISABLED
             counter += 1
     count()
 
@@ -27,20 +26,23 @@ def StartCounter(lbTime):
     timer = True
     counter_label(lbTime)
     
+    
 
 def reset():
-    global counter, timer, date
+    global counter, timer, btnStart
     if timer >= 0:
         timer=False
         counter=0
         timer=0
+        lbTime.config(text='00:00')
     else:
         timer=True
     btnStart['state'] = 'normal'
 
+
 root = Tk()
 root.title("Main Window")
-root.geometry("520x300")
+root.geometry("500x300")
 root.resizable(False, False)
 root.eval('tk::PlaceWindow . center')
 root.configure(background='#252422')
@@ -53,7 +55,7 @@ lb02 = Label(root, text="Jelenlegi pont:")
 lbMaxScore = Label(root, text="x")
 lbRoundScore = Label(root, text="x")
 
-btnStart = Button(root, text='Start', command=lambda:counter_label(lbTime))
+btnStart = Button(root, text='Start', command=lambda:StartCounter(lbTime))
 btnReset = Button(root, text='Reset', command=reset)
 btnExit = Button(root, text='Exit', command=root.destroy)
 
