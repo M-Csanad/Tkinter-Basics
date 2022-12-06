@@ -3,6 +3,7 @@ import tkinter.font
 from datetime import datetime
 
 
+
 counter = 0
 timer = False
 
@@ -28,6 +29,36 @@ def StartCounter(lbTime):
     
     
 
+def info():
+    global TitleFont
+    root_info=Tk()
+    root_info.title("Információ")
+    root_info.geometry("520x300")
+    root_info.resizable(False, False)
+    root_info.eval('tk::PlaceWindow . center')
+    root_info.configure(background='#252422')
+
+    '''TitleFont = tkinter.font.Font(
+    family = 'Comic Sans MS', 
+    weight = 'bold', 
+    size = 20,
+    )'''
+    
+    info_Title=Label(root_info, text="Színátváltó")
+    info_Title.config(anchor=CENTER, font = TitleFont, bg="#252422", fg="#ccc5b9")
+    info_Title.grid(row=0, column=2)
+
+    '''info1=Label(root_info, text="1.: 9 szín közül lehet választani.")
+    info2=Label(root_info, text="2.: A Start gomb lenyomásával indíthatod a játékot.")
+    info3=Label(root_info, text="3.: Mindig azt a színt írd le ")'''
+
+    
+
+
+
+
+
+
 def reset():
     global counter, timer, btnStart
     if timer >= 0:
@@ -40,7 +71,6 @@ def reset():
     btnStart['state'] = 'normal'
 
 
-    
 
 
 root = Tk()
@@ -57,6 +87,12 @@ lb01 = Label(root, text="Max pont:")
 lb02 = Label(root, text="Jelenlegi pont:")
 lbMaxScore = Label(root, text="x")
 lbRoundScore = Label(root, text="x")
+
+btnStart = Button(root, text='Start', command=lambda:StartCounter(lbTime))
+btnReset = Button(root, text='Reset', command=reset)
+btnExit = Button(root, text='Exit', command=root.destroy)
+btnInfo = Button(root, text="Info", command=info)
+
 
 
 def clickEnt(*args):
@@ -124,6 +160,7 @@ btnReset.grid(row=4, column=2, pady=10)
 btnExit.grid(row=4, column=2, pady=10, sticky=E)
 lbWord.grid(row=5, column=2, sticky=EW)
 lbNotif.grid(row=5, column=3, sticky=E)
+btnInfo.grid(row=4, column=3)
 
 
 TitleFont = tkinter.font.Font(
@@ -149,6 +186,7 @@ lbNotif.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 btnStart.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnReset.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnExit.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
+btnInfo.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 
 
 
