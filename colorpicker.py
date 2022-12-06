@@ -3,6 +3,7 @@ import tkinter.font
 from datetime import datetime
 
 
+
 counter = 0
 timer = False
 
@@ -27,6 +28,36 @@ def StartCounter(lbTime):
     timer = True
     counter_label(lbTime)
     
+
+def info():
+    global TitleFont
+    root_info=Tk()
+    root_info.title("Információ")
+    root_info.geometry("520x300")
+    root_info.resizable(False, False)
+    root_info.eval('tk::PlaceWindow . center')
+    root_info.configure(background='#252422')
+
+    '''TitleFont = tkinter.font.Font(
+    family = 'Comic Sans MS', 
+    weight = 'bold', 
+    size = 20,
+    )'''
+    
+    info_Title=Label(root_info, text="Színátváltó")
+    info_Title.config(anchor=CENTER, font = TitleFont, bg="#252422", fg="#ccc5b9")
+    info_Title.grid(row=0, column=2)
+
+    '''info1=Label(root_info, text="1.: 9 szín közül lehet választani.")
+    info2=Label(root_info, text="2.: A Start gomb lenyomásával indíthatod a játékot.")
+    info3=Label(root_info, text="3.: Mindig azt a színt írd le ")'''
+
+    
+
+
+
+
+
 
 def reset():
     global counter, timer, date
@@ -56,6 +87,7 @@ lbRoundScore = Label(root, text="x")
 btnStart = Button(root, text='Start', command=lambda:counter_label(lbTime))
 btnReset = Button(root, text='Reset', command=reset)
 btnExit = Button(root, text='Exit', command=root.destroy)
+btnInfo = Button(root, text="Info", command=info)
 
 
 
@@ -100,6 +132,7 @@ drop.grid(row=3, column=3, sticky=W)
 btnStart.grid(row=4, column=2, sticky=W)
 btnReset.grid(row=4, column=2)
 btnExit.grid(row=4, column=2, sticky=E)
+btnInfo.grid(row=4, column=3)
 
 
 TitleFont = tkinter.font.Font(
@@ -123,6 +156,7 @@ lbRoundScore.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 btnStart.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnReset.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnExit.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
+btnInfo.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 
 
 
