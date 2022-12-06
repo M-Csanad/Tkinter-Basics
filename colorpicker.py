@@ -26,7 +26,13 @@ def StartCounter(lbTime):
     timer = False
     counter_label(lbTime)
 
-
+def reset():
+    global counter, timer
+    if timer >= 0:
+        timer=True
+        counter=0
+    else:
+        timer=False
 
 root = Tk()
 root.title("Main Window")
@@ -73,7 +79,6 @@ root.columnconfigure(1, weight = 0)
 root.columnconfigure(2, weight = 1)
 root.columnconfigure(3, weight = 0)
 '''
-
 
 
 
