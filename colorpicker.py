@@ -11,13 +11,14 @@ def counter_label(lbTime):
         if timer == False:
             global counter
             if counter == 0:
-                display="."
+                display="00:00"
             else:
                 date = datetime.fromtimestamp(counter)
                 string = date.strftime("%M:%S")
                 display=string
             lbTime.config(text=display)
             lbTime.after(1000, count)
+            btnStart['state'] = DISABLED
             counter += 1
     count()
 
@@ -25,6 +26,7 @@ def StartCounter(lbTime):
     global timer
     timer = False
     counter_label(lbTime)
+    
 
 
 
