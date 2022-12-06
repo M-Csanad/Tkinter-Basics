@@ -27,10 +27,11 @@ def StartCounter(lbTime):
     counter_label(lbTime)
 
 def reset():
-    global counter, timer
+    global counter, timer, date
     if timer >= 0:
         timer=True
         counter=0
+        timer=0
     else:
         timer=False
 
@@ -50,7 +51,7 @@ lbMaxScore = Label(root, text="x")
 lbRoundScore = Label(root, text="x")
 
 btnStart = Button(root, text='Start', command=lambda:counter_label(lbTime))
-btnReset = Button(root, text='Reset')
+btnReset = Button(root, text='Reset', command=reset)
 btnExit = Button(root, text='Exit', command=root.destroy)
 
 
