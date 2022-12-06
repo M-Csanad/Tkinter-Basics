@@ -40,6 +40,9 @@ def reset():
     btnStart['state'] = 'normal'
 
 
+    
+
+
 root = Tk()
 root.title("Main Window")
 root.geometry("500x300")
@@ -55,11 +58,6 @@ lb02 = Label(root, text="Jelenlegi pont:")
 lbMaxScore = Label(root, text="x")
 lbRoundScore = Label(root, text="x")
 
-btnStart = Button(root, text='Start', command=lambda:StartCounter(lbTime))
-btnReset = Button(root, text='Reset', command=reset)
-btnExit = Button(root, text='Exit', command=root.destroy)
-
-
 
 def clickEnt(*args):
     inEntry.delete(0, 'end')
@@ -68,10 +66,32 @@ inEntry = Entry(root)
 inEntry.insert(0, 'Ide írja a szó színét')
 inEntry.bind("<Button-1>", clickEnt)
 
+myDict = {
+        'zöld' : '#1cbd22',
+        'piros' : '#db3218',
+        'kék' : '#0b99e6',
+        'rózsaszín' : '#ff78b5',
+        'narancs' : '#ff9500',
+        'citrom' : '#f6ff00', 
+        'lila' : '#7f12c7',
+        'cián' : '#17adb0',
+        'bíbor' : '#901796'
+    }
+color_lst = list(myDict.items())
+
+
+def game():
+    UserText = inEntry.get()
+    
+    
+
+btnStart = Button(root, text='Start', command=lambda:StartCounter(lbTime))
+btnReset = Button(root, text='Reset', command=reset)
+btnExit = Button(root, text='Exit', command=root.destroy)
 
 menu = StringVar(root)
 menu.set("? szín")
-drop = OptionMenu(root, menu, "1 szín", "2 szín", "3 szín", "4 szín", "5 szín", "6 szín")
+drop = OptionMenu(root, menu, "1 szín", "2 szín", "3 szín", "4 szín", "5 szín", "6 szín", "7 szín", "8 szín", "9 szín")
 drop.config(bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9")
 drop["menu"].config(bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9")
 
@@ -96,12 +116,14 @@ lbMaxScore.grid(row=1, column=1)
 lbRoundScore.grid(row=2, column=1)
 lbTime.grid(row=1, column=4, padx=10)
 
-inEntry.grid(row=3, column=2, ipadx=20, ipady=5, pady=15, sticky=E)
+inEntry.grid(row=3, column=2, ipadx=20, ipady=5, sticky=E)
 drop.grid(row=3, column=3, sticky=W)
 
-btnStart.grid(row=4, column=2, sticky=W)
-btnReset.grid(row=4, column=2)
-btnExit.grid(row=4, column=2, sticky=E)
+btnStart.grid(row=4, column=2, pady=10, sticky=W)
+btnReset.grid(row=4, column=2, pady=10)
+btnExit.grid(row=4, column=2, pady=10, sticky=E)
+lbWord.grid(row=5, column=2, sticky=EW)
+lbNotif.grid(row=5, column=3, sticky=E)
 
 
 TitleFont = tkinter.font.Font(
@@ -122,6 +144,8 @@ lb01.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 lb02.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 lbMaxScore.config(font = SimpleFont, bg="#252422", fg="#eb5e28")
 lbRoundScore.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
+lbWord.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
+lbNotif.config(font = SimpleFont, bg="#252422", fg="#ccc5b9")
 btnStart.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnReset.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
 btnExit.config(font = SimpleFont, bg="#252422", fg="#ccc5b9", activebackground="#eb5e28", activeforeground="#ccc5b9", border=0)
