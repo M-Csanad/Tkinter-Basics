@@ -89,6 +89,7 @@ btnInfo = Button(root, text="Info", command=info)
 def clickEnt(args):
     inEntry.delete(0, 'end')
 
+
 mystring = StringVar()
 inEntry = Entry(root, textvariable=mystring)
 inEntry.insert(0, 'Ide írja a szó színét')
@@ -104,15 +105,15 @@ drop["menu"].config(bg="#252422", fg="#ccc5b9",
                     activebackground="#eb5e28", activeforeground="#ccc5b9")
 
 myDict = {
-    'Zöld': 2818934,  #1cbd22
-    'Piros': 2195024,  #db3218
-    'Kék': 11153230,  #0b99e6
-    'Rózsaszín': 255120181,  #ff78b5
-    'Narancs': 2551490,  #ff9500
-    'Citrom': 2462550,  #f6ff00
-    'Lila': 12718199,  #7f12c7
-    'Cián': 23173176,  #17adb0
-    'Bíbor': 14423150,  #901796
+    'Zöld': 2818934,  # 1cbd22
+    'Piros': 2195024,  # db3218
+    'Kék': 11153230,  # 0b99e6
+    'Rózsaszín': 255120181,  # ff78b5
+    'Narancs': 2551490,  # ff9500
+    'Citrom': 2462550,  # f6ff00
+    'Lila': 12718199,  # 7f12c7
+    'Cián': 23173176,  # 17adb0
+    'Bíbor': 14423150,  # 901796
 }
 
 color_lst = [(key, value) for key, value in myDict.items()]
@@ -120,22 +121,22 @@ color_lst = [(key, value) for key, value in myDict.items()]
 rndName = random.choice(color_lst)
 rndRGB = random.choice(color_lst)
 
+
 def gameActual(event):
     global score, mScore, rndName, rndRGB
     UserText = inEntry.get()
     inEntry.delete(0, 'end')
-    if UserText == rndRGB[0] :
-        lbNotif.config(text = "Helyes! +1pont")
+    if UserText == rndRGB[0]:
+        lbNotif.config(text="Helyes! +1pont")
         score += 1
         if score > mScore:
             mScore = score
-        lbRoundScore.config(text = score)
-        lbMaxScore.config(text= mScore)
+        lbRoundScore.config(text=score)
+        lbMaxScore.config(text=mScore)
     else:
-        lbNotif.config(text= "Tévedtél, válasz '%s' volt" %  rndRGB[0])
+        lbNotif.config(text="Tévedtél, válasz '%s' volt" % rndRGB[0])
         score = 0
-        lbRoundScore.config(text = score)
-
+        lbRoundScore.config(text=score)
 
     rndName = random.choice(color_lst)
     rndRGB = random.choice(color_lst)
@@ -160,8 +161,7 @@ def gameActual(event):
     lbWord.config(text=rndName[0])
 
     return
-   
-        
+
 
 def gameStart():
     lbWord.config(text=rndName[0])
@@ -184,10 +184,7 @@ def gameStart():
     elif rndRGB[1] == 14423150:
         lbWord.config(fg='#901796')
 
-    
     inEntry.bind('<Return>', gameActual)
-
-
 
 
 btnStart = Button(root, text='Start', command=lambda: [
@@ -205,8 +202,6 @@ lb01 = Label(root, text="Max pont:")
 lb02 = Label(root, text="Sorozat pont:")
 lbMaxScore = Label(root, text=mScore)
 lbRoundScore = Label(root, text=score)
-
-
 
 
 '''
