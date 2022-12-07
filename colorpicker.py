@@ -123,6 +123,7 @@ rndRGB = random.choice(color_lst)
 def gameActual(event):
     global score, mScore, rndName, rndRGB
     UserText = inEntry.get()
+    inEntry.delete(0, 'end')
     if UserText == rndRGB[0] :
         lbNotif.config(text = "Helyes! +1pont")
         score += 1
@@ -132,6 +133,9 @@ def gameActual(event):
         lbMaxScore.config(text= mScore)
     else:
         lbNotif.config(text= "Tévedtél, válasz '%s' volt" %  rndRGB[0])
+        score = 0
+        lbRoundScore.config(text = score)
+
 
     rndName = random.choice(color_lst)
     rndRGB = random.choice(color_lst)
@@ -198,7 +202,7 @@ lbNotif = Label(root, text="Visszajelzés")
 lbTime = Label(root, text="Timer")
 lbTitle = Label(root, text="Színátváltó")
 lb01 = Label(root, text="Max pont:")
-lb02 = Label(root, text="Jelenlegi pont:")
+lb02 = Label(root, text="Sorozat pont:")
 lbMaxScore = Label(root, text=mScore)
 lbRoundScore = Label(root, text=score)
 
