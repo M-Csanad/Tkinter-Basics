@@ -104,6 +104,8 @@ drop.config(bg="#252422", fg="#ccc5b9",
 drop["menu"].config(bg="#252422", fg="#ccc5b9",
                     activebackground="#eb5e28", activeforeground="#ccc5b9")
 
+type = menu.get()
+
 myDict = {
     'Zöld': 2818934,  # 1cbd22
     'Piros': 2195024,  # db3218
@@ -122,6 +124,11 @@ rndName = random.choice(color_lst)
 rndRGB = random.choice(color_lst)
 
 
+'''colorCode = []
+for i in range(9):
+        rndRGB = random.choice(color_lst)
+        colorCode.append(color_lst[i][1])'''
+
 def gameActual(event):
     global score, mScore, rndName, rndRGB
     UserText = inEntry.get()
@@ -139,6 +146,13 @@ def gameActual(event):
         lbRoundScore.config(text=score)
 
     rndName = random.choice(color_lst)
+
+
+    '''if type == "1 szín":
+        None
+    elif type == "2 szín":
+        None'''
+
     rndRGB = random.choice(color_lst)
     if rndRGB[1] == 2818934:
         lbWord.config(fg='#1cbd22')
