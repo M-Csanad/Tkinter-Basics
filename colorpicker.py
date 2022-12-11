@@ -104,7 +104,6 @@ drop.config(bg="#252422", fg="#ccc5b9",
 drop["menu"].config(bg="#252422", fg="#ccc5b9",
                     activebackground="#eb5e28", activeforeground="#ccc5b9")
 
-type = menu.get()
 
 myDict = {
     'Zöld': 2818934,  # 1cbd22
@@ -121,39 +120,18 @@ myDict = {
 color_lst = [(key, value) for key, value in myDict.items()]
 
 rndName = random.choice(color_lst)
-rndRGB = random.choice(color_lst)
 
 
-'''colorCode = []
+colorCode = []
 for i in range(9):
-        rndRGB = random.choice(color_lst)
-        colorCode.append(color_lst[i][1])'''
+    colorCode.append(color_lst[i][1])
+rndRGB = [color_lst[0][0], colorCode[0]]
+
 
 def gameActual(event):
     global score, mScore, rndName, rndRGB
-    UserText = inEntry.get()
-    inEntry.delete(0, 'end')
-    if UserText == rndRGB[0]:
-        lbNotif.config(text="Helyes! +1pont")
-        score += 1
-        if score > mScore:
-            mScore = score
-        lbRoundScore.config(text=score)
-        lbMaxScore.config(text=mScore)
-    else:
-        lbNotif.config(text="Tévedtél, válasz '%s' volt" % rndRGB[0])
-        score = 0
-        lbRoundScore.config(text=score)
+    type = menu.get()
 
-    rndName = random.choice(color_lst)
-
-
-    '''if type == "1 szín":
-        None
-    elif type == "2 szín":
-        None'''
-
-    rndRGB = random.choice(color_lst)
     if rndRGB[1] == 2818934:
         lbWord.config(fg='#1cbd22')
     elif rndRGB[1] == 2195024:
@@ -172,7 +150,106 @@ def gameActual(event):
         lbWord.config(fg='#17adb0')
     elif rndRGB[1] == 14423150:
         lbWord.config(fg='#901796')
+
     lbWord.config(text=rndName[0])
+
+    UserText = inEntry.get()
+    inEntry.delete(0, 'end')
+    if UserText == rndRGB[0]:
+        lbNotif.config(text="Helyes! +1pont")
+        score += 1
+        if score > mScore:
+            mScore = score
+        lbRoundScore.config(text=score)
+        lbMaxScore.config(text=mScore)
+    else:
+        lbNotif.config(text="Tévedtél, válasz '%s' volt" % rndRGB[0])
+        score = 0
+        lbRoundScore.config(text=score)
+
+    rndName = random.choice(color_lst)
+
+    if type == "1 szín":
+        None
+
+    elif type == "2 szín":
+        I = [colorCode[0], colorCode[1]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "3 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "4 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2], colorCode[3]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "5 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2], colorCode[3], colorCode[4]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "6 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2],
+             colorCode[3], colorCode[4], colorCode[5]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "7 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2],
+             colorCode[3], colorCode[4], colorCode[5], colorCode[6]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "8 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2], colorCode[3],
+             colorCode[4], colorCode[5], colorCode[6], colorCode[7]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    elif type == "9 szín":
+        I = [colorCode[0], colorCode[1], colorCode[2], colorCode[3],
+             colorCode[4], colorCode[5], colorCode[6], colorCode[7], colorCode[8]]
+        rndRGB[1] = random.choice(I)
+        for i in range(len(color_lst)-1):
+            if color_lst[i][1] == rndRGB[1]:
+                rndRGB[0] = color_lst[i][0]
+
+    if rndRGB[1] == 2818934:
+        lbWord.config(fg='#1cbd22')
+    elif rndRGB[1] == 2195024:
+        lbWord.config(fg='#db3218')
+    elif rndRGB[1] == 11153230:
+        lbWord.config(fg='#0b99e6')
+    elif rndRGB[1] == 255120181:
+        lbWord.config(fg='#ff78b5')
+    elif rndRGB[1] == 2551490:
+        lbWord.config(fg='#ff9500')
+    elif rndRGB[1] == 2462550:
+        lbWord.config(fg='#f6ff00')
+    elif rndRGB[1] == 12718199:
+        lbWord.config(fg='#7f12c7')
+    elif rndRGB[1] == 23173176:
+        lbWord.config(fg='#17adb0')
+    elif rndRGB[1] == 14423150:
+        lbWord.config(fg='#901796')
 
     return
 
